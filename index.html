@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+<head>    
+    <title>Liste des acteurs</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des acteurs</title>
+    <meta name="description" content="Répertorie une liste donnée de films et d'acteurs associés">
 
+    <link rel="manifest" href="/manifest.json">
+    
     <style>
         body {
             font-family: sans-serif;
@@ -151,6 +155,7 @@
                 // On est obligé de faire cloneNode() car si on les ajoutait simplement, alors quand on modifiera un des acteur, tous auront la modif
                 content.querySelector(".nom").innerText = acteur.Nom;
                 content.querySelector(".portrait>img").src = `https://workshop.neotechweb.net/ws/ciamovie/1.0.0/acteurs/${acteur.idActeur}.jpg`;
+                content.querySelector(".portrait>img").setAttribute('alt', acteur.Nom);
                 container.appendChild(content);
             });
         }
@@ -167,6 +172,7 @@
                 // On est obligé de faire cloneNode() car si on les ajoutait simplement, alors quand on modifiera un des acteur, tous auront la modif
                 content.querySelector(".titre").innerText = film.Titre;
                 content.querySelector(".poster>img").src = `https://workshop.neotechweb.net/ws/ciamovie/1.0.0/films/${film.Fichier}`;
+                content.querySelector(".poster>img").setAttribute('alt', film.Titre);
                 container.appendChild(content);
             });
         }
